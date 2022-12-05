@@ -13,6 +13,7 @@ model User {
   email String @unique
   password String
   blog Blog[]
+   role Role @default(USER)
 }
 
 model Blog {
@@ -23,4 +24,9 @@ model Blog {
   user User @relation(fields: [user_id],references: [id])
 }
 
+enum Role {
+  USER
+  ADMIN
+  SUPERUSER
+}
 
